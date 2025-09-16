@@ -37,6 +37,41 @@
   margin: 0 auto;
 }
 
+/* Mobile responsiveness for empty state */
+@media (max-width: 1024px) {
+  .dashboard-empty-state {
+    margin: 1rem;
+    margin-top: 2rem; /* Extra space below mobile nav */
+    padding: 2rem 1rem;
+    border-radius: 8px;
+  }
+  
+  .dashboard-empty-state h3 {
+    font-size: 20px;
+  }
+  
+  .dashboard-empty-state p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-empty-state {
+    margin: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .dashboard-empty-state h3 {
+    font-size: 18px;
+  }
+  
+  .dashboard-empty-state p {
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+  }
+}
+
 .dashboard-loading {
   display: flex;
   justify-content: center;

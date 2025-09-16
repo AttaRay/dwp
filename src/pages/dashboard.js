@@ -160,6 +160,17 @@ const Dashboard = ({ initialTab = 'overview' }) => {
     checkUserAndFetchData();
   }, [user, navigate]);
 
+  const handleSignOut = async () => {
+    setIsSigningOut(true);
+    await auth.signOut();
+    navigate('/login');
+  };
+
+  const handleMobileNavigation = (tab, path) => {
+    setActiveTab(tab);
+    navigate(path);
+  };
+
   if (loading) {
     return <div className="dashboard-loading">Loading...</div>;
   }
@@ -171,6 +182,15 @@ const Dashboard = ({ initialTab = 'overview' }) => {
   if (dataStatus === 'empty') {
     return (
       <div className="dashboard-container">
+        {/* Mobile Navigation for empty state */}
+        <MobileNav 
+          activeTab={activeTab}
+          onTabChange={handleMobileNavigation}
+          onSignOut={handleSignOut}
+          userName="User"
+          isSigningOut={isSigningOut}
+        />
+        
         <div className="dashboard-empty-state">
           <h3>Your Dashboard is Being Prepared</h3>
           <p>Thank you for logging in! Your personalized dashboard is currently being set up. 
@@ -192,6 +212,15 @@ const Dashboard = ({ initialTab = 'overview' }) => {
   if (dataStatus === 'loading') {
     return (
       <div className="dashboard-container">
+        {/* Mobile Navigation for loading state */}
+        <MobileNav 
+          activeTab={activeTab}
+          onTabChange={handleMobileNavigation}
+          onSignOut={handleSignOut}
+          userName="User"
+          isSigningOut={isSigningOut}
+        />
+        
         <div className="dashboard-loading">
           Loading your dashboard...
         </div>
@@ -202,6 +231,15 @@ const Dashboard = ({ initialTab = 'overview' }) => {
   if (dataStatus === 'error') {
     return (
       <div className="dashboard-container">
+        {/* Mobile Navigation for error state */}
+        <MobileNav 
+          activeTab={activeTab}
+          onTabChange={handleMobileNavigation}
+          onSignOut={handleSignOut}
+          userName="User"
+          isSigningOut={isSigningOut}
+        />
+        
         <div className="dashboard-empty-state">
           <h3>Oops! Something went wrong</h3>
           <p>We're having trouble loading your dashboard. Please try again later or contact support if the problem persists.</p>
@@ -239,17 +277,6 @@ const Dashboard = ({ initialTab = 'overview' }) => {
       );
     }
     return null;
-  };
-
-  const handleMobileNavigation = (tab, path) => {
-    setActiveTab(tab);
-    navigate(path);
-  };
-
-  const handleSignOut = async () => {
-    setIsSigningOut(true);
-    await auth.signOut();
-    navigate('/login');
   };
 
   const renderTabContent = () => {
