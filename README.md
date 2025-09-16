@@ -1,70 +1,166 @@
-# Getting Started with Create React App
+# Digital Wealth Partners (DWP) - Client Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A professional React-based dashboard application for Digital Wealth Partners, providing clients with comprehensive portfolio management and cryptocurrency investment tracking.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+### 📊 Dashboard
+- **Portfolio Overview**: Real-time portfolio performance and asset allocation
+- **Investment Tracking**: XRP and XLM cryptocurrency holdings with live price data
+- **Transaction History**: Complete transaction logs with filtering and search
+- **Performance Analytics**: Monthly returns and portfolio growth charts
+- **Withdrawal Requests**: Secure withdrawal system with admin notifications
 
-### `npm start`
+### 🔐 Authentication & Security
+- **Firebase Authentication**: Secure user authentication and session management
+- **Protected Routes**: Dashboard access restricted to authenticated users
+- **Offline Support**: Firebase offline persistence for improved user experience
+- **Error Handling**: Comprehensive error states with recovery options
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📱 Responsive Design
+- **Mobile-First**: Optimized for all screen sizes (desktop, tablet, mobile)
+- **Mobile Navigation**: Clean hamburger menu for mobile dashboard access
+- **Responsive Charts**: Full-width chart layouts optimized for mobile viewing
+- **Touch-Friendly**: Proper spacing and touch targets for mobile devices
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🎨 Modern UI/UX
+- **Clean Design**: Professional interface with consistent styling
+- **Interactive Charts**: Recharts integration for beautiful data visualization
+- **Loading States**: Skeleton loaders and empty states for better UX
+- **Accessibility**: WCAG compliant with proper semantic markup
 
-### `npm test`
+## 🛠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**: React 19.1.1
+- **Routing**: React Router DOM 7.8.1
+- **Authentication**: Firebase 12.2.1
+- **Charts**: Recharts 3.1.2
+- **Styling**: CSS3 with CSS Variables
+- **Build Tool**: Create React App 5.0.1
+- **Icons**: FontAwesome & React Icons
 
-### `npm run build`
+## 📦 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/dwp-dashboard.git
+   cd dwp-dashboard
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Start development server**
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+4. **Open browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔧 Available Scripts
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `npm start` - Runs development server
+- `npm run build` - Creates production build
+- `npm test` - Runs test suite
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Production Build
+```bash
+npm run build
+```
 
-## Learn More
+### Deployment Options
+- **Netlify**: Drag and drop `build` folder
+- **Vercel**: Connect GitHub repo for auto-deployment
+- **Firebase Hosting**: Use `firebase deploy`
+- **AWS S3**: Upload build folder to S3 bucket
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📁 Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/          # Reusable UI components
+│   ├── MobileNav.js    # Mobile navigation component
+│   ├── ChartEmptyState.js
+│   └── ProtectedRoute.js
+├── pages/              # Page components
+│   ├── dashboard.js    # Main dashboard
+│   ├── login.js        # Authentication
+│   ├── home.js         # Landing page
+│   └── ...
+├── hooks/              # Custom React hooks
+│   └── useAuth.js      # Authentication hook
+├── scripts/            # Admin utility scripts
+│   ├── createUser.js   # User creation script
+│   └── updateUser.js   # User data management
+└── firebase.js         # Firebase configuration
+```
 
-### Code Splitting
+## 🔐 Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Create `.env.production` for production deployment:
+```
+GENERATE_SOURCEMAP=false
+REACT_APP_VERSION=$npm_package_version
+```
 
-### Analyzing the Bundle Size
+Firebase configuration is included in `src/firebase.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📊 Features Overview
 
-### Making a Progressive Web App
+### User Dashboard
+- **Portfolio Overview**: Balance cards, crypto holdings, performance metrics
+- **Investment Management**: XRP/XLM investment tracking with live prices
+- **Transaction History**: Comprehensive transaction logs with filtering
+- **Withdrawal System**: Secure withdrawal requests with email notifications
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Admin Features (Scripts)
+- **User Management**: Create and update user accounts
+- **Portfolio Management**: Set up user portfolios and transactions
+- **Withdrawal Processing**: Handle withdrawal requests
 
-### Advanced Configuration
+## 🔒 Security Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Firebase Authentication with email/password
+- Protected routes for dashboard access
+- Secure API calls with authentication tokens
+- Input validation and sanitization
+- Error boundary components
 
-### Deployment
+## 📱 Mobile Optimization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Responsive breakpoints: 1024px, 768px, 480px
+- Mobile-specific navigation with hamburger menu
+- Touch-optimized chart interactions
+- Optimized loading states for mobile
 
-### `npm run build` fails to minify
+## 🎯 Browser Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📄 License
+
+This project is proprietary software developed for Digital Wealth Partners.
+
+## 🤝 Contributing
+
+This is a private project. For internal development inquiries, please contact the development team.
+
+## 📞 Support
+
+For technical support or questions, please contact:
+- Email: support@dwp.com
+- Phone: (555) 123-4567
+
+---
+
+**Digital Wealth Partners** - Professional Cryptocurrency Portfolio Management

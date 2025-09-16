@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+ @import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+
+/* CSS Variables for consistency */
+:root {
+  --primary-color: #2c5530;
+  --secondary-color: #4a7f4c;
+  --background-gray: #f8f9fa;
+  --text-primary: #2c3342;
+  --text-secondary: #6c757d;
+  --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+    font-size: 15px;
+    line-height: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+/* Improved mobile styling */
+@media (max-width: 1024px) {
+    body {
+        font-size: 14px;
+        line-height: 22px;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    #root > div {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+        line-height: 19px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+    button, 
+    input[type="button"], 
+    input[type="submit"], 
+    .clickable {
+        min-height: 44px;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    input, 
+    textarea, 
+    select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Improve scrolling */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
 }

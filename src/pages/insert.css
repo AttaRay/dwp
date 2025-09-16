@@ -1,0 +1,81 @@
+.insert-main1 {
+  
+  padding-top: 100px;
+}
+.insert-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+ 
+}
+
+.insert-container h2 {
+  color: #333;
+  text-align: center;
+}
+
+.insert-container p {
+  color: #555;
+  font-size: 14px;
+}
+
+.insert-container ul {
+  color: #555;
+  font-size: 14px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.insert-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.insert-form input,
+.insert-form select,
+.insert-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.insert-form input.error,
+.insert-form select.error,
+.insert-form textarea.error {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.insert-form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #cf9455;
+  color: white;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.insert-form button:hover {
+  color: #724412;
+}

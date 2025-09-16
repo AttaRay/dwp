@@ -1,0 +1,980 @@
+.dashboard-container {
+  padding: 2rem 4rem;
+  margin-top: 100px;
+  min-height: calc(100vh - 100px);
+  background-color: var(--background-gray);
+}
+
+.dashboard-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow-large);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.dashboard-empty-state h3 {
+  color: var(--text-primary);
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+}
+
+.dashboard-empty-state p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+/* Error state sign-out button styling */
+.error-sign-out {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.dashboard-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h2 {
+  font-size: 34px;
+  color: var(--text-primary);
+  margin: 0;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+}
+
+.date-text {
+  color: var(--text-secondary);
+  margin: 0.5rem 0 0;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, helvetica neue, sans-serif;
+}
+
+.sign-out-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 12px 24px;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, helvetica neue, sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sign-out-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #c82333;
+  transition: width 0.25s ease;
+  z-index: -1;
+}
+
+.sign-out-btn:hover::before {
+  width: 100%;
+}
+
+.sign-out-btn:hover {
+  color: white;
+  border-color: #c82333;
+}
+
+.sign-out-btn:disabled {
+  background-color: #e99;
+  border-color: #e99;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.sign-out-btn:disabled::before {
+  display: none;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(44, 51, 66, 0.17);
+  padding-bottom: 0.5rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, helvetica neue, sans-serif;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--secondary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+}
+
+.tab-button.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tab-button.active::after {
+  transform: scaleX(1);
+}
+
+.dashboard-content {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: var(--shadow-large);
+}
+
+.balance-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.balance-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+}
+
+.balance-card h3 {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0 0 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, helvetica neue, sans-serif;
+}
+
+.balance-amount {
+  color: var(--text-primary);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+}
+
+.balance-change {
+  display: block;
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+.balance-change.positive {
+  color: #28a745;
+}
+
+.balance-change.negative {
+  color: #dc3545;
+}
+
+.balance-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.recent-activity {
+  margin-top: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  color: var(--text-primary);
+  font-size: 20px;
+  margin: 0;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+}
+
+.view-all {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.view-all:hover {
+  color: var(--primary-color);
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(44, 51, 66, 0.17);
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.transaction-date {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.transaction-description {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.transaction-amount.positive {
+  color: #28a745;
+}
+
+.transaction-amount.negative {
+  color: #dc3545;
+}
+
+.no-transactions {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Mobile Navigation Breakpoints */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    margin-top: 0; /* No extra margin needed since mobile nav is in document flow */
+    padding: 1rem !important; /* Reduce side padding significantly for more chart space */
+  }
+
+  /* Hide desktop navigation and welcome header on tablets and mobile with high specificity */
+  .dashboard-container .desktop-only,
+  .dashboard-tabs,
+  .dashboard-header,  /* Hide the welcome header on mobile */
+  .sign-out-btn:not(.mobile-sign-out-btn) {
+    display: none !important;
+  }
+
+  /* Add space between mobile nav and content */
+  .dashboard-content {
+    margin-top: 2rem; /* Add clear space below mobile nav */
+    padding: 0 !important; /* Remove any extra padding from content */
+    width: 100% !important;
+  }
+
+  /* Add space specifically for balance cards */
+  .balance-cards {
+    margin-top: 1.5rem; /* Extra space for balance cards */
+  }
+
+  /* Charts mobile layout - column view with full width */
+  .charts-grid {
+    grid-template-columns: 1fr !important; /* Single column layout */
+    gap: 2rem; /* Increased gap for better spacing */
+    width: 100% !important;
+  }
+
+  .chart-container {
+    width: 100% !important; /* Full width */
+    max-width: 100% !important;
+    margin-bottom: 1.5rem;
+    padding: 1rem !important; /* Reduce padding to maximize chart space */
+    box-sizing: border-box !important;
+  }
+
+  /* Force ResponsiveContainer to use full width */
+  .chart-container .recharts-responsive-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Remove grid column spans on mobile */
+  .performance-chart,
+  .allocation-chart {
+    grid-column: auto !important;
+  }
+
+  /* Crypto charts also in column layout */
+  .crypto-charts-grid {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr !important; /* Single column for crypto charts */
+    gap: 1.5rem;
+    margin-top: 2rem;
+    width: 100% !important;
+  }
+
+  .crypto-chart-container {
+    width: 100% !important; /* Full width for crypto charts */
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+    margin-top: 0; /* Remove top margin since mobile nav is sticky */
+  }
+
+  /* Hide desktop navigation on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem; /* Add space below mobile nav */
+  }
+
+  .balance-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .tab-button {
+    padding: 0.5rem 1rem;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Use 3 columns to better utilize space */
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.crypto-charts-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.crypto-chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+}
+
+.crypto-chart {
+  width: 100%;
+  height: 400px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 100%;
+}
+
+.crypto-chart h3 {
+  color: var(--text-primary);
+  font-size: 18px;
+  margin: 0 0 1rem;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+}
+
+.chart-container h3 {
+  color: var(--text-primary);
+  font-size: 18px;
+  margin: 0 0 1rem;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.performance-chart {
+  grid-column: 1 / 3; /* Spans 2 columns out of 3 */
+}
+
+.allocation-chart {
+  grid-column: 3; /* Takes the 3rd column */
+}
+
+.returns-chart {
+  grid-column: 1 / -1; /* Spans all 3 columns for full width */
+}
+
+.custom-tooltip {
+  background: white;
+  border: 1px solid rgba(44, 51, 66, 0.17);
+  border-radius: 4px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-tooltip .label {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0 0 0.25rem;
+}
+
+  .custom-tooltip .value {
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+/* Investment Portfolio Styles */
+.dashboard-investments {
+  padding: 1rem;
+}
+
+.investment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.invest-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, helvetica neue, sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.invest-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  transition: width 0.25s ease;
+  z-index: -1;
+}
+
+.invest-btn:hover::before {
+  width: 100%;
+}
+
+.invest-btn:hover {
+  color: white;
+  border-color: var(--secondary-color);
+}
+
+.invest-btn.contact-support {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.invest-btn.contact-support::before {
+  background-color: #357abd;
+}
+
+.invest-btn.contact-support:hover {
+  border-color: #357abd;
+}
+
+.investment-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.summary-amount {
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+}
+
+.summary-change {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.summary-change.positive {
+  color: #28a745;
+}
+
+.summary-change.negative {
+  color: #dc3545;
+}
+
+.summary-subtext {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.investment-table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.investment-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.investment-table th {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(44, 51, 66, 0.17);
+  color: var(--text-primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.investment-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(44, 51, 66, 0.1);
+  color: var(--text-secondary);
+}
+
+.investment-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.investment-info .name {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.investment-info .symbol {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.return {
+  font-weight: 600;
+}
+
+.return.positive {
+  color: #28a745;
+}
+
+.return.negative {
+  color: #dc3545;
+}
+
+/* Transactions Styles */
+.dashboard-transactions {
+  padding: 1rem;
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.transaction-filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-select, .date-filter {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(44, 51, 66, 0.17);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.transactions-table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(44, 51, 66, 0.1);
+}
+
+.transactions-table th {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.transaction-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.transaction-type.deposit {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.transaction-type.withdrawal {
+  background-color: #fbe9e7;
+  color: #d84315;
+}
+
+.transaction-type.investment {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.transaction-type.return {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.completed {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.pending {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+/* Withdrawal Styles */
+.dashboard-withdrawal {
+  padding: 1rem;
+}
+
+.withdrawal-header {
+  margin-bottom: 2rem;
+}
+
+.withdrawal-notice {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+.withdrawal-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.balance-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.available-balance,
+.pending-withdrawals {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+}
+
+.available-balance h4,
+.pending-withdrawals h4 {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0 0 0.5rem;
+}
+
+.balance-amount,
+.pending-amount {
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+}
+
+.withdrawal-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(44, 51, 66, 0.17);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.amount-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-secondary);
+}
+
+.amount-input input {
+  padding: 0.75rem 1rem 0.75rem 2rem;
+  width: 100%;
+}
+
+.withdrawal-form input,
+.withdrawal-form select,
+.withdrawal-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(44, 51, 66, 0.17);
+  border-radius: 5px;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.withdrawal-form input:focus,
+.withdrawal-form select:focus,
+.withdrawal-form textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.withdrawal-notice-box {
+  background-color: #fff3e0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.withdrawal-notice-box h4 {
+  color: #ef6c00;
+  margin: 0 0 1rem;
+}
+
+.withdrawal-notice-box ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.withdrawal-notice-box li {
+  margin-bottom: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submit-request-btn,
+.contact-support-btn {
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, helvetica neue, sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.submit-request-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+}
+
+.submit-request-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  transition: width 0.25s ease;
+  z-index: -1;
+}
+
+.submit-request-btn:hover::before {
+  width: 100%;
+}
+
+.submit-request-btn:hover {
+  color: white;
+  border-color: var(--secondary-color);
+}
+
+.contact-support-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.contact-support-btn:hover {
+  background-color: rgba(44, 51, 66, 0.05);
+}
+
+@media (max-width: 768px) {
+  .investment-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-table-container,
+  .transactions-table-container {
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+
+  .transaction-filters {
+    flex-direction: column;
+  }
+
+  .balance-info {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .withdrawal-form {
+    padding: 1rem;
+  }
+}

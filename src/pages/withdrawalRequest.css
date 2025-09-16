@@ -1,0 +1,600 @@
+/* Withdrawal Request Modal Styles */
+.withdrawal-request-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.withdrawal-request-content {
+  background: white;
+  border-radius: 12px;
+  padding: 0;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Embedded Version Styles */
+.withdrawal-embedded {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.embedded-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #2c5530;
+}
+
+.embedded-header h2 {
+  margin: 0 0 1rem 0;
+  color: #2c5530;
+  font-size: 1.8rem;
+}
+
+.withdrawal-notice {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.close-x {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.close-x:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Form Styles */
+.withdrawal-request-content form,
+.withdrawal-embedded form {
+  padding: 1.5rem;
+}
+
+.withdrawal-embedded form {
+  padding: 0; /* Remove padding for embedded since container already has it */
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
+  margin: 0 0 1rem 0;
+  color: #2c5530;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #2c5530;
+  padding-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2c5530;
+  box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Error Message */
+.error-message {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.cancel-button:hover {
+  background-color: #e5e5e5;
+  color: #333;
+}
+
+.submit-button {
+  background-color: #2c5530;
+  color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #1e3a21;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.success-message {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-message h2 {
+  color: #2c5530;
+  margin-bottom: 1rem;
+}
+
+.success-message p {
+  margin-bottom: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.close-button {
+  background-color: #2c5530;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #1e3a21;
+}
+
+/* Withdrawal Summary Styles */
+.withdrawal-summary {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.withdrawal-summary h3 {
+  margin: 0 0 1rem 0;
+  color: #2c5530;
+  font-size: 1.1rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item span:first-child {
+  color: #666;
+  font-weight: 500;
+}
+
+.summary-item span:last-child {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .withdrawal-request-content {
+    width: 95%;
+    max-width: 700px;
+  }
+
+  .withdrawal-embedded {
+    padding: 1.25rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .withdrawal-request-modal {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .withdrawal-request-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    max-height: calc(100vh - 2rem);
+    border-radius: 12px;
+  }
+
+  .withdrawal-embedded {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .embedded-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .withdrawal-notice {
+    font-size: 0.9rem;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .withdrawal-request-content form,
+  .withdrawal-embedded form {
+    padding: 1rem;
+  }
+
+  .withdrawal-embedded form {
+    padding: 0;
+  }
+
+  .form-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.875rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 8px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group small {
+    font-size: 0.8rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .success-message {
+    padding: 1.5rem;
+  }
+
+  .success-message h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .success-message p {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .close-button {
+    width: 100%;
+    padding: 0.875rem 2rem;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .withdrawal-summary {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .withdrawal-summary h3 {
+    font-size: 1rem;
+  }
+
+  .summary-item {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .withdrawal-request-modal {
+    padding: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .withdrawal-request-content {
+    border-radius: 8px;
+    max-height: calc(100vh - 1rem);
+  }
+
+  .withdrawal-embedded {
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .embedded-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .withdrawal-notice {
+    font-size: 0.85rem;
+  }
+
+  .modal-header {
+    padding: 0.75rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .withdrawal-request-content form {
+    padding: 0.75rem;
+  }
+
+  .form-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.6rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .form-group small {
+    font-size: 0.75rem;
+  }
+
+  .form-actions {
+    gap: 0.6rem;
+    padding-top: 0.6rem;
+  }
+
+  .cancel-button,
+  .submit-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 15px;
+    border-radius: 6px;
+  }
+
+  .success-message {
+    padding: 1.25rem;
+  }
+
+  .success-message h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .success-message p {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .close-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 15px;
+    border-radius: 6px;
+  }
+
+  .withdrawal-summary {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .withdrawal-summary h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .summary-item {
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .close-x {
+    padding: 10px;
+    font-size: 1.25rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.15);
+  }
+
+  /* Improve button accessibility */
+  .cancel-button,
+  .submit-button,
+  .close-button {
+    min-height: 44px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .cancel-button:active,
+  .submit-button:active,
+  .close-button:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Loading state improvements for mobile */
+@media (max-width: 768px) {
+  .submit-button:disabled::after {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Loading State */
+.submit-button:disabled {
+  position: relative;
+}
+
+.submit-button:disabled::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
