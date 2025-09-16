@@ -176,6 +176,14 @@ const Dashboard = ({ initialTab = 'overview' }) => {
           <p>Thank you for logging in! Your personalized dashboard is currently being set up. 
              Please check back later to view your portfolio and investment details.</p>
           <p>This typically takes a few minutes to complete.</p>
+          <button 
+            className="sign-out-btn error-sign-out"
+            disabled={isSigningOut}
+            onClick={handleSignOut}
+            style={{ marginTop: '1.5rem' }}
+          >
+            {isSigningOut ? 'Signing out...' : 'Sign Out'}
+          </button>
         </div>
       </div>
     );
