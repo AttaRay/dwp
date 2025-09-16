@@ -303,7 +303,7 @@
 /* Mobile Navigation Breakpoints */
 @media (max-width: 1024px) {
   .dashboard-container {
-    margin-top: 0; /* No extra margin needed since mobile nav is in document flow */
+    margin-top: 180px !important; /* Account for header (100px) + mobile nav height (~70px) + padding */
     padding: 1rem !important; /* Reduce side padding significantly for more chart space */
   }
 
@@ -317,14 +317,14 @@
 
   /* Add space between mobile nav and content */
   .dashboard-content {
-    margin-top: 2rem; /* Add clear space below mobile nav */
+    margin-top: 1rem; /* Reduce top margin since we added space to container */
     padding: 0 !important; /* Remove any extra padding from content */
     width: 100% !important;
   }
 
   /* Add space specifically for balance cards */
   .balance-cards {
-    margin-top: 1.5rem; /* Extra space for balance cards */
+    margin-top: 1rem; /* Reduce since container has more margin */
   }
 
   /* Charts mobile layout - column view with full width */
@@ -373,7 +373,7 @@
 @media (max-width: 768px) {
   .dashboard-container {
     padding: 1rem;
-    margin-top: 0; /* Remove top margin since mobile nav is sticky */
+    margin-top: 180px !important; /* Same margin to ensure no overlap on small mobile screens */
   }
 
   /* Hide desktop navigation on mobile */
@@ -385,7 +385,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin-top: 1rem; /* Add space below mobile nav */
+    margin-top: 0.5rem; /* Reduce since container has more margin */
   }
 
   .balance-cards {
