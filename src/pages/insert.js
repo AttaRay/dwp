@@ -57,7 +57,7 @@ const Insert = () => {
     if (validateForm()) {
       try {
         // Send data to backend
-        const response = await fetch('http://localhost:5000/api/validate-xrp', {
+  const response = await fetch('https://6620fe1ab6a1.ngrok-free.app/api/validate-xrp', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -15,8 +15,26 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Your React app's URL
-  methods: ['POST'],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'https://dwp-teal.vercel.app'
+    ];
+    
+    // Allow any Vercel subdomain
+    const isVercelDomain = /^https:\/\/.*\.vercel\.app$/.test(origin);
+    
+    if (allowedOrigins.includes(origin) || isVercelDomain) {
+      return callback(null, true);
+    }
+    
+    return callback(new Error('Not allowed by CORS'));
+  },
+  methods: ['POST', 'GET', 'OPTIONS'],
   credentials: true
 }));
 app.use(express.json());
